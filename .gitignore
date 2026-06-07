@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Fonts (download separately)
+fonts/
+
+# Media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+input/
+output/
+
+# Env
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
