@@ -1,0 +1,85 @@
+# ─────────────────────────────────────────────
+#  Video Editor — Style Presets
+# ─────────────────────────────────────────────
+# All values here are defaults. Override per-video
+# by passing --config <your_config.yaml> to main.py.
+
+# ── Output format ──────────────────────────
+format: vertical          # vertical | square | landscape
+fade_in:  0.4             # seconds
+fade_out: 0.4
+
+# ── Transcription ──────────────────────────
+whisper_model: base       # tiny | base | small | medium | large
+language: null            # null = auto-detect
+
+# ── Content Analysis (Claude API) ──────────────
+analysis:
+  enabled: true
+  apply_effects: true     # apply attention effects from analysis
+  print_summary: true     # print analysis table to console
+  model: claude-3-5-haiku-20241022
+  max_keywords: 8
+  language_hint: null     # e.g. "Vietnamese" — helps the LLM
+
+# ── Color Grade ────────────────────────────
+color_grade: desaturate   # desaturate | cinematic | bw | none
+color_grade_options:
+  saturation: 0.35        # 0 = full B&W, 1 = original
+  contrast: 1.15
+  brightness: 0.0
+
+# ── Attention Effects ──────────────────────
+attention:
+  zoom_punch:
+    enabled: true
+    scale: 1.08           # how much to zoom in
+    duration: 0.25        # seconds
+  color_flash:
+    enabled: true
+    color: [255, 220, 0]  # RGB yellow
+    opacity: 0.18
+    duration: 0.15
+  slow_zoom:
+    enabled: true
+    scale: 1.05
+    duration: 1.5
+  shake:
+    enabled: false        # off by default — use sparingly
+    pixels: 6
+    duration: 0.3
+
+# ── Captions ──────────────────────────────
+captions:
+  enabled: true
+  font: fonts/Montserrat-Bold.ttf   # fallback to system font if missing
+  font_size: 68
+  color: white
+  stroke_color: black
+  stroke_width: 3
+  highlight_color: "#FFE000"        # accent for keywords
+  highlight_bg: null                # null | "black" | "#333333"
+  position: bottom                  # top | center | bottom
+  words_per_line: 4
+  animation: word_by_word           # word_by_word | fade | none
+  max_lines: 2
+
+# ── Static Text Overlays ─────────────────────
+text_overlays: []
+# Example:
+# text_overlays:
+#   - text: "🏠 Vay mua nhà"
+#     position: top_center
+#     font_size: 72
+#     color: white
+#     start: 0
+#     duration: 3
+#     animation: fade_slide_down
+
+# ── Export ────────────────────────────────
+export:
+  codec: libx264
+  audio_codec: aac
+  bitrate: "8000k"
+  fps: 30
+  preset: slow             # ultrafast | fast | medium | slow
